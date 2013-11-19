@@ -18,6 +18,7 @@
 		D0D167BB183AFD67001CE56D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D167BA183AFD67001CE56D /* Default-568h@2x.png */; };
 		D0D167BE183AFD67001CE56D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D167BC183AFD67001CE56D /* MainStoryboard.storyboard */; };
 		D0D167CB183AFE23001CE56D /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167CA183AFE23001CE56D /* FlickrFetcher.m */; };
+		D0D167CE183B084D001CE56D /* BrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167CD183B084D001CE56D /* BrowseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		D0D167C8183AFE23001CE56D /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		D0D167C9183AFE23001CE56D /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		D0D167CA183AFE23001CE56D /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		D0D167CC183B084D001CE56D /* BrowseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseViewController.h; sourceTree = "<group>"; };
+		D0D167CD183B084D001CE56D /* BrowseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +87,9 @@
 		D0D167AA183AFD67001CE56D /* SPoT */ = {
 			isa = PBXGroup;
 			children = (
-				D0D167B3183AFD67001CE56D /* SpotAppDelegate.h */,
-				D0D167B4183AFD67001CE56D /* SpotAppDelegate.m */,
 				D0D167BC183AFD67001CE56D /* MainStoryboard.storyboard */,
+				D0D167CC183B084D001CE56D /* BrowseViewController.h */,
+				D0D167CD183B084D001CE56D /* BrowseViewController.m */,
 				D0D167C7183AFE23001CE56D /* FlickrFetcher */,
 				D0D167AB183AFD67001CE56D /* Supporting Files */,
 			);
@@ -96,6 +99,8 @@
 		D0D167AB183AFD67001CE56D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D0D167B3183AFD67001CE56D /* SpotAppDelegate.h */,
+				D0D167B4183AFD67001CE56D /* SpotAppDelegate.m */,
 				D0D167AC183AFD67001CE56D /* SPoT-Info.plist */,
 				D0D167AD183AFD67001CE56D /* InfoPlist.strings */,
 				D0D167B0183AFD67001CE56D /* main.m */,
@@ -187,6 +192,7 @@
 				D0D167B1183AFD67001CE56D /* main.m in Sources */,
 				D0D167B5183AFD67001CE56D /* SpotAppDelegate.m in Sources */,
 				D0D167CB183AFE23001CE56D /* FlickrFetcher.m in Sources */,
+				D0D167CE183B084D001CE56D /* BrowseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +315,7 @@
 				D0D167C6183AFD67001CE56D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
