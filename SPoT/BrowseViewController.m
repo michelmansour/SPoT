@@ -35,11 +35,10 @@
         for (NSString *tag in [photo[FLICKR_TAGS] componentsSeparatedByString:@" "]) {
             if (![badTags containsObject:tag]) {
                 NSString *capTag = [tag capitalizedString];
-                if (self.tags[capTag]) {
-                    self.tags[capTag] = [NSNumber numberWithInt:[self.tags[capTag] intValue] + 1];
-                } else {
-                    self.tags[capTag] = @1;
+                if (!self.tags[capTag]) {
+                    self.tags[capTag] = [[NSMutableArray alloc] init];
                 }
+                [self.tags[capTag] addObject:photo];
             }
         }
     }
@@ -57,7 +56,7 @@
     
     NSString *tagTitle = self.tagNames[indexPath.row];
     cell.textLabel.text = tagTitle;
-    cell.detailTextLabel.text = [self.tags[tagTitle] description];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [self.tags[tagTitle] count]];
     
     return cell;
 }
