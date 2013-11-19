@@ -61,4 +61,15 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"List Photos"]) {
+                [segue.destinationViewController setTitle:self.tagNames[indexPath.row]];
+            }
+        }
+    }
+}
+
 @end
