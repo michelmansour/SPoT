@@ -56,7 +56,7 @@
     
     NSString *tagTitle = self.tagNames[indexPath.row];
     cell.textLabel.text = tagTitle;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", [self.tags[tagTitle] count]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d photos", [self.tags[tagTitle] count]];
     
     return cell;
 }
@@ -69,8 +69,6 @@
                 if ([segue.destinationViewController respondsToSelector:@selector(setPhotos:)]) {
                     [segue.destinationViewController performSelector:@selector(setPhotos:) withObject:self.tags[self.tagNames[indexPath.row]]];
                     [segue.destinationViewController setTitle:self.tagNames[indexPath.row]];
-//                    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:self.tagNames[indexPath.row] style:UIBarButtonItemStyleBordered target:nil action:nil];
-//                    [segue.destinationViewController setBackBarButtonItem:backButton];
                 }
             }
         }
