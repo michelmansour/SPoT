@@ -16,7 +16,6 @@
 @implementation PhotoListViewController
 
 - (void)setPhotos:(NSArray *)photos {
-    NSLog(@"%@", photos);
     _photos = photos;
     [self.tableView reloadData];
 }
@@ -38,6 +37,22 @@
     cell.detailTextLabel.text = [[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] description];
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"Show Photo"]) {
+                if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+                    NSDictionary *photo = self.photos[indexPath.row];
+                    NSURL *imageURL = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
+                    [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:imageURL];
+                    [segue.destinationViewController setTitle:photo[FLICKR_PHOTO_TITLE]];
+                }
+            }
+        }
+    }
 }
 
 @end
