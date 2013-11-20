@@ -20,6 +20,7 @@
 		D0D167CB183AFE23001CE56D /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167CA183AFE23001CE56D /* FlickrFetcher.m */; };
 		D0D167CE183B084D001CE56D /* TagBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167CD183B084D001CE56D /* TagBrowserViewController.m */; };
 		D0D167D1183B29A2001CE56D /* PhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D0183B29A2001CE56D /* PhotoListViewController.m */; };
+		D0D167D4183C67E2001CE56D /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D3183C67E2001CE56D /* PhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		D0D167CD183B084D001CE56D /* TagBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagBrowserViewController.m; sourceTree = "<group>"; };
 		D0D167CF183B29A2001CE56D /* PhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoListViewController.h; sourceTree = "<group>"; };
 		D0D167D0183B29A2001CE56D /* PhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoListViewController.m; sourceTree = "<group>"; };
+		D0D167D2183C67E2001CE56D /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		D0D167D3183C67E2001CE56D /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				D0D167BC183AFD67001CE56D /* MainStoryboard.storyboard */,
+				D0D167D2183C67E2001CE56D /* PhotoViewController.h */,
+				D0D167D3183C67E2001CE56D /* PhotoViewController.m */,
 				D0D167CC183B084D001CE56D /* TagBrowserViewController.h */,
 				D0D167CD183B084D001CE56D /* TagBrowserViewController.m */,
 				D0D167CF183B29A2001CE56D /* PhotoListViewController.h */,
@@ -199,6 +204,7 @@
 				D0D167CB183AFE23001CE56D /* FlickrFetcher.m in Sources */,
 				D0D167CE183B084D001CE56D /* TagBrowserViewController.m in Sources */,
 				D0D167D1183B29A2001CE56D /* PhotoListViewController.m in Sources */,
+				D0D167D4183C67E2001CE56D /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
