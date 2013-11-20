@@ -100,7 +100,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="W1l-jC-nOI" kind="push" id="QX9-cn-Cbz"/>
+                                    <segue destination="W1l-jC-nOI" kind="push" identifier="Show Photo" id="QX9-cn-Cbz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="1009" y="480"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo View Controller-->
         <scene sceneID="cvL-5x-AwT">
             <objects>
-                <viewController id="W1l-jC-nOI" sceneMemberID="viewController">
+                <viewController id="W1l-jC-nOI" customClass="PhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eIr-Vv-EBI">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -213,16 +213,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5VE-5G-DxT" firstAttribute="bottom" secondItem="eIr-Vv-EBI" secondAttribute="bottom" type="default" id="Un2-h9-hyN"/>
-                            <constraint firstItem="5VE-5G-DxT" firstAttribute="leading" secondItem="eIr-Vv-EBI" secondAttribute="leading" type="default" id="fp7-bC-Jex"/>
                             <constraint firstItem="5VE-5G-DxT" firstAttribute="top" secondItem="eIr-Vv-EBI" secondAttribute="top" type="default" id="gMd-5q-DQx"/>
-                            <constraint firstItem="5VE-5G-DxT" firstAttribute="trailing" secondItem="eIr-Vv-EBI" secondAttribute="trailing" type="default" id="nn8-vh-bUg"/>
+                            <constraint firstItem="5VE-5G-DxT" firstAttribute="trailing" secondItem="eIr-Vv-EBI" secondAttribute="trailing" type="default" id="vKd-6D-FKt"/>
+                            <constraint firstItem="5VE-5G-DxT" firstAttribute="leading" secondItem="eIr-Vv-EBI" secondAttribute="leading" type="default" id="wza-Lu-VQY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="H8b-s1-bgu"/>
+                    <connections>
+                        <outlet property="scrollView" destination="5VE-5G-DxT" id="O19-dG-7hU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBT-an-9Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1548" y="480"/>
+            <point key="canvasLocation" x="1550" y="480"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bfa-8O-PhC">
@@ -242,6 +245,23 @@
             <point key="canvasLocation" x="475" y="480"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PhotoListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListViewController.h"/>
+        </class>
+        <class className="PhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="TagBrowserViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TagBrowserViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
