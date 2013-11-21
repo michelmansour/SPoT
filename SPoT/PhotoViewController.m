@@ -15,8 +15,8 @@
 
 @implementation PhotoViewController
 
-- (void)setImageURL:(NSURL *)imageURL {
-    _imageURL = imageURL;
+- (void)setPhotoURL:(NSURL *)photoURL {
+    _photoURL = photoURL;
     [self resetImage];
 }
 
@@ -30,7 +30,7 @@
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
         
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.photoURL];
         UIImage *image = [[UIImage alloc] initWithData:imageData];
         if (image) {
             self.scrollView.zoomScale = 1.0;
