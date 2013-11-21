@@ -10,6 +10,8 @@
 
 @interface PhotoListViewController : UITableViewController
 
+- (NSString *)reusableCellIdentifier;
+
 @property (strong, nonatomic) NSArray *photos;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "PhotoListViewController.h"
 #import "FlickrFetcher.h"
+#import "RecentPhoto.h"
 
 @interface PhotoListViewController ()
 
@@ -29,8 +30,12 @@
     return [self.photos count];
 }
 
+- (NSString *)reusableCellIdentifier {
+    return @"Flickr Photo";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FlickrPhoto" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self reusableCellIdentifier] forIndexPath:indexPath];
     
     NSDictionary *photo = self.photos[indexPath.row];
     cell.textLabel.text = [photo[FLICKR_PHOTO_TITLE] description];
@@ -44,11 +49,12 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Show Photo"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+                if ([segue.destinationViewController respondsToSelector:@selector(setPhotoURL:)]) {
                     NSDictionary *photo = self.photos[indexPath.row];
-                    NSURL *imageURL = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
-                    [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:imageURL];
+                    NSURL *photoURL = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
+                    [segue.destinationViewController performSelector:@selector(setPhotoURL:) withObject:photoURL];
                     [segue.destinationViewController setTitle:photo[FLICKR_PHOTO_TITLE]];
+                    [RecentPhoto viewedPhoto:photo];
                 }
             }
         }
