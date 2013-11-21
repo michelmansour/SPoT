@@ -21,6 +21,8 @@
 		D0D167CE183B084D001CE56D /* TagBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167CD183B084D001CE56D /* TagBrowserViewController.m */; };
 		D0D167D1183B29A2001CE56D /* PhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D0183B29A2001CE56D /* PhotoListViewController.m */; };
 		D0D167D4183C67E2001CE56D /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D3183C67E2001CE56D /* PhotoViewController.m */; };
+		D0D167D7183DB359001CE56D /* RecentPhotosListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D6183DB358001CE56D /* RecentPhotosListViewController.m */; };
+		D0D167DA183DB4C7001CE56D /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D9183DB4C7001CE56D /* RecentPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,10 @@
 		D0D167D0183B29A2001CE56D /* PhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoListViewController.m; sourceTree = "<group>"; };
 		D0D167D2183C67E2001CE56D /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		D0D167D3183C67E2001CE56D /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		D0D167D5183DB358001CE56D /* RecentPhotosListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosListViewController.h; sourceTree = "<group>"; };
+		D0D167D6183DB358001CE56D /* RecentPhotosListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosListViewController.m; sourceTree = "<group>"; };
+		D0D167D8183DB4C7001CE56D /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhoto.h; sourceTree = "<group>"; };
+		D0D167D9183DB4C7001CE56D /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhoto.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +99,11 @@
 		D0D167AA183AFD67001CE56D /* SPoT */ = {
 			isa = PBXGroup;
 			children = (
+				D0D167D8183DB4C7001CE56D /* RecentPhoto.h */,
+				D0D167D9183DB4C7001CE56D /* RecentPhoto.m */,
 				D0D167BC183AFD67001CE56D /* MainStoryboard.storyboard */,
+				D0D167D5183DB358001CE56D /* RecentPhotosListViewController.h */,
+				D0D167D6183DB358001CE56D /* RecentPhotosListViewController.m */,
 				D0D167D2183C67E2001CE56D /* PhotoViewController.h */,
 				D0D167D3183C67E2001CE56D /* PhotoViewController.m */,
 				D0D167CC183B084D001CE56D /* TagBrowserViewController.h */,
@@ -205,6 +215,8 @@
 				D0D167CE183B084D001CE56D /* TagBrowserViewController.m in Sources */,
 				D0D167D1183B29A2001CE56D /* PhotoListViewController.m in Sources */,
 				D0D167D4183C67E2001CE56D /* PhotoViewController.m in Sources */,
+				D0D167D7183DB359001CE56D /* RecentPhotosListViewController.m in Sources */,
+				D0D167DA183DB4C7001CE56D /* RecentPhoto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
