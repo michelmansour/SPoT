@@ -44,7 +44,7 @@
     }
     
     [self.tagNames removeAllObjects];
-    [self.tagNames addObjectsFromArray:[self.tags allKeys]];
+    [self.tagNames addObjectsFromArray:[[self.tags allKeys] sortedArrayUsingSelector:@selector(compare:)]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -67,7 +67,8 @@
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"List Photos"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setPhotos:)]) {
-                    [segue.destinationViewController performSelector:@selector(setPhotos:) withObject:self.tags[self.tagNames[indexPath.row]]];
+                    [segue.destinationViewController performSelector:@selector(setPhotos:) withObject:[self.tags[self.tagNames[indexPath.row]] sortedArrayUsingDescriptors:@[ [NSSortDescriptor sortDescriptorWithKey:FLICKR_PHOTO_TITLE ascending:YES],
+                                                                                                       [NSSortDescriptor sortDescriptorWithKey:FLICKR_PHOTO_ID ascending:YES] ]]];
                     [segue.destinationViewController setTitle:self.tagNames[indexPath.row]];
                 }
             }
