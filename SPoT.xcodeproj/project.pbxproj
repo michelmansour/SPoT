@@ -16,13 +16,14 @@
 		D0D167B7183AFD67001CE56D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D167B6183AFD67001CE56D /* Default.png */; };
 		D0D167B9183AFD67001CE56D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D167B8183AFD67001CE56D /* Default@2x.png */; };
 		D0D167BB183AFD67001CE56D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0D167BA183AFD67001CE56D /* Default-568h@2x.png */; };
-		D0D167BE183AFD67001CE56D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D167BC183AFD67001CE56D /* MainStoryboard.storyboard */; };
+		D0D167BE183AFD67001CE56D /* iPhoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D167BC183AFD67001CE56D /* iPhoneStoryboard.storyboard */; };
 		D0D167CB183AFE23001CE56D /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167CA183AFE23001CE56D /* FlickrFetcher.m */; };
 		D0D167CE183B084D001CE56D /* TagBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167CD183B084D001CE56D /* TagBrowserViewController.m */; };
 		D0D167D1183B29A2001CE56D /* PhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D0183B29A2001CE56D /* PhotoListViewController.m */; };
 		D0D167D4183C67E2001CE56D /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D3183C67E2001CE56D /* PhotoViewController.m */; };
 		D0D167D7183DB359001CE56D /* RecentPhotosListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D6183DB358001CE56D /* RecentPhotosListViewController.m */; };
 		D0D167DA183DB4C7001CE56D /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D9183DB4C7001CE56D /* RecentPhoto.m */; };
+		D0D167DF183F1382001CE56D /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D167DD183F1382001CE56D /* iPadStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +40,7 @@
 		D0D167B6183AFD67001CE56D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D0D167B8183AFD67001CE56D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		D0D167BA183AFD67001CE56D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D0D167BD183AFD67001CE56D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		D0D167BD183AFD67001CE56D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhoneStoryboard.storyboard; sourceTree = "<group>"; };
 		D0D167C8183AFE23001CE56D /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		D0D167C9183AFE23001CE56D /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		D0D167CA183AFE23001CE56D /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		D0D167D6183DB358001CE56D /* RecentPhotosListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosListViewController.m; sourceTree = "<group>"; };
 		D0D167D8183DB4C7001CE56D /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhoto.h; sourceTree = "<group>"; };
 		D0D167D9183DB4C7001CE56D /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhoto.m; sourceTree = "<group>"; };
+		D0D167DE183F1382001CE56D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPadStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,8 @@
 			children = (
 				D0D167D8183DB4C7001CE56D /* RecentPhoto.h */,
 				D0D167D9183DB4C7001CE56D /* RecentPhoto.m */,
-				D0D167BC183AFD67001CE56D /* MainStoryboard.storyboard */,
+				D0D167BC183AFD67001CE56D /* iPhoneStoryboard.storyboard */,
+				D0D167DD183F1382001CE56D /* iPadStoryboard.storyboard */,
 				D0D167D5183DB358001CE56D /* RecentPhotosListViewController.h */,
 				D0D167D6183DB358001CE56D /* RecentPhotosListViewController.m */,
 				D0D167D2183C67E2001CE56D /* PhotoViewController.h */,
@@ -198,7 +201,8 @@
 				D0D167B7183AFD67001CE56D /* Default.png in Resources */,
 				D0D167B9183AFD67001CE56D /* Default@2x.png in Resources */,
 				D0D167BB183AFD67001CE56D /* Default-568h@2x.png in Resources */,
-				D0D167BE183AFD67001CE56D /* MainStoryboard.storyboard in Resources */,
+				D0D167BE183AFD67001CE56D /* iPhoneStoryboard.storyboard in Resources */,
+				D0D167DF183F1382001CE56D /* iPadStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,12 +235,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		D0D167BC183AFD67001CE56D /* MainStoryboard.storyboard */ = {
+		D0D167BC183AFD67001CE56D /* iPhoneStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D0D167BD183AFD67001CE56D /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = iPhoneStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		D0D167DD183F1382001CE56D /* iPadStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0D167DE183F1382001CE56D /* en */,
+			);
+			name = iPadStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -304,7 +316,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPoT/SPoT-Prefix.pch";
 				INFOPLIST_FILE = "SPoT/SPoT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -315,7 +329,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPoT/SPoT-Prefix.pch";
 				INFOPLIST_FILE = "SPoT/SPoT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
