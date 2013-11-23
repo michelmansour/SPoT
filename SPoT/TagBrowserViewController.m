@@ -9,7 +9,7 @@
 #import "TagBrowserViewController.h"
 #import "FlickrFetcher.h"
 
-@interface TagBrowserViewController ()
+@interface TagBrowserViewController () <UISplitViewControllerDelegate>
 @property (strong, nonatomic) NSMutableDictionary *tags;
 @property (strong, nonatomic) NSMutableArray *tagNames;
 @end
@@ -74,6 +74,16 @@
             }
         }
     }
+}
+
+#pragma mark - UISplitViewControllerDelegate
+
+- (void)awakeFromNib {
+    self.splitViewController.delegate = self;
+}
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    return NO;
 }
 
 @end

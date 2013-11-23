@@ -9,7 +9,7 @@
 #import "RecentPhotosListViewController.h"
 #import "RecentPhoto.h"
 
-@interface RecentPhotosListViewController ()
+@interface RecentPhotosListViewController () <UISplitViewControllerDelegate>
 
 @end
 
@@ -41,14 +41,14 @@
     [self setup];
 }
 
+#pragma mark - UISplitViewControllerDelegate
+
 - (void)awakeFromNib {
-    [self setup];
+    self.splitViewController.delegate = self;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    [self setup];
-    return self;
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    return NO;
 }
 
 @end
