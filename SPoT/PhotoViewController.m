@@ -7,11 +7,13 @@
 //
 
 #import "PhotoViewController.h"
+#import "AttributedStringViewController.h"
 
 @interface PhotoViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleButtonItem;
+@property (strong, nonatomic) UIPopoverController *urlPopover;
 @end
 
 @implementation PhotoViewController
@@ -43,7 +45,26 @@
             }
         }
     }
-    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"Show URL"]) {
+        return (self.photoURL && !self.urlPopover.popoverVisible) ? YES : NO;
+    } else {
+        return NO;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Show URL"]) {
+        if ([segue.destinationViewController isKindOfClass:[AttributedStringViewController class]]) {
+            AttributedStringViewController *asc = (AttributedStringViewController *)segue.destinationViewController;
+            asc.text = [[NSAttributedString alloc] initWithString:[self.photoURL description]];
+            if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]]) {
+                self.urlPopover = ((UIStoryboardPopoverSegue *)segue).popoverController;
+            }
+        }
+    }
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
