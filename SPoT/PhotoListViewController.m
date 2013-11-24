@@ -46,7 +46,11 @@
             if ([segue.identifier isEqualToString:@"Show Photo"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setPhotoURL:)]) {
                     NSDictionary *photo = self.photos[indexPath.row];
-                    NSURL *photoURL = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
+                    int flickrPhotoFormat = FlickrPhotoFormatLarge;
+                    if (self.splitViewController) {
+                        flickrPhotoFormat = FlickrPhotoFormatOriginal;
+                    }
+                    NSURL *photoURL = [FlickrFetcher urlForPhoto:photo format:flickrPhotoFormat];
                     [segue.destinationViewController performSelector:@selector(setPhotoURL:) withObject:photoURL];
                     [segue.destinationViewController setTitle:photo[FLICKR_PHOTO_TITLE]];
                     [RecentPhoto viewedPhoto:photo];
