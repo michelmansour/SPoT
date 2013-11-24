@@ -11,6 +11,7 @@
 @interface PhotoViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleButtonItem;
 @end
 
 @implementation PhotoViewController
@@ -37,8 +38,12 @@
             self.scrollView.contentSize = image.size;
             self.imageView.image = image;
             self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+            if (self.titleButtonItem) {
+                self.titleButtonItem.title = self.title;
+            }
         }
     }
+    
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -51,6 +56,7 @@
     self.scrollView.minimumZoomScale = 0.2;
     self.scrollView.maximumZoomScale = 5.0;
     self.scrollView.delegate = self;
+    self.titleButtonItem.title = self.title;
     [self resetImage];
 }
 
