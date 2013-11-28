@@ -62,6 +62,9 @@
             asc.text = [[NSAttributedString alloc] initWithString:[self.photoURL description]];
             if ([segue isKindOfClass:[UIStoryboardPopoverSegue class]]) {
                 self.urlPopover = ((UIStoryboardPopoverSegue *)segue).popoverController;
+                asc.usePopoverController = YES;
+            } else {
+                asc.usePopoverController = NO;
             }
         }
     }

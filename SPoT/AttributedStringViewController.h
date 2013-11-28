@@ -11,5 +11,6 @@
 @interface AttributedStringViewController : UIViewController
 
 @property (strong, nonatomic) NSAttributedString *text;
+@property (nonatomic) BOOL usePopoverController;
 
 @end

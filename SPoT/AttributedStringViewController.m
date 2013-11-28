@@ -27,12 +27,17 @@
 
 - (IBAction)shareURL:(UIBarButtonItem *)sender {
     
-    if (!self.sharePopover || !self.sharePopover.popoverVisible) {
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                                 initWithActivityItems:@[ self.text ] applicationActivities:nil];
-        activityVC.excludedActivityTypes = @[ UIActivityTypePostToWeibo ];
-        self.sharePopover = [[UIPopoverController alloc]initWithContentViewController:activityVC];
-        [self.sharePopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+
+    activityVC.excludedActivityTypes = @[ UIActivityTypePostToWeibo ];
+    if (self.usePopoverController) {
+        if (!self.sharePopover || !self.sharePopover.popoverVisible) {
+            self.sharePopover = [[UIPopoverController alloc]initWithContentViewController:activityVC];
+            [self.sharePopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+    } else {
+        [self presentViewController:activityVC animated:YES completion:nil];
     }
 }
 
