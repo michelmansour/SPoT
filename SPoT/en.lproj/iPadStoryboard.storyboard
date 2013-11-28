@@ -190,6 +190,7 @@
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tAv-Bo-Cd9"/>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pu2-6J-DkO"/>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYx-2m-OZd">
                                 <items>
@@ -211,13 +212,16 @@
                             <constraint firstItem="oYx-2m-OZd" firstAttribute="top" secondItem="Hye-xb-dCV" secondAttribute="top" type="default" id="3KH-mC-jLn"/>
                             <constraint firstItem="oYx-2m-OZd" firstAttribute="leading" secondItem="Hye-xb-dCV" secondAttribute="leading" type="default" id="4Ge-uW-YI6"/>
                             <constraint firstItem="pu2-6J-DkO" firstAttribute="leading" secondItem="Hye-xb-dCV" secondAttribute="leading" type="default" id="C6n-9Z-Us9"/>
+                            <constraint firstItem="tAv-Bo-Cd9" firstAttribute="leading" secondItem="Hye-xb-dCV" secondAttribute="leading" constant="365" id="Kww-FJ-hgw"/>
                             <constraint firstItem="pu2-6J-DkO" firstAttribute="bottom" secondItem="Hye-xb-dCV" secondAttribute="bottom" type="default" id="MZO-Iy-l5a"/>
+                            <constraint firstItem="tAv-Bo-Cd9" firstAttribute="centerY" secondItem="Hye-xb-dCV" secondAttribute="centerY" type="default" id="Vq7-ef-PMl"/>
                             <constraint firstItem="oYx-2m-OZd" firstAttribute="bottom" secondItem="pu2-6J-DkO" secondAttribute="top" type="default" id="Zsw-Cm-TqR"/>
                             <constraint firstItem="pu2-6J-DkO" firstAttribute="trailing" secondItem="Hye-xb-dCV" secondAttribute="trailing" type="default" id="nnY-hU-Ddt"/>
                             <constraint firstItem="oYx-2m-OZd" firstAttribute="trailing" secondItem="Hye-xb-dCV" secondAttribute="trailing" type="default" id="wZO-HX-ZKT"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="tAv-Bo-Cd9" id="9Ll-EW-2vD"/>
                         <outlet property="scrollView" destination="pu2-6J-DkO" id="eAd-w3-5fQ"/>
                         <outlet property="titleButtonItem" destination="0hi-vX-co7" id="LB0-zU-6oZ"/>
                     </connections>
@@ -248,6 +252,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hlH-im-vCU"/>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tsW-mK-BRX"/>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zq8-TM-yI6"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -256,7 +261,9 @@
                             <constraint firstItem="pGh-mw-1mJ" firstAttribute="leading" secondItem="fGZ-nO-IR9" secondAttribute="leading" type="default" id="Msc-Hu-xpT"/>
                             <constraint firstItem="Zq8-TM-yI6" firstAttribute="top" secondItem="pGh-mw-1mJ" secondAttribute="bottom" type="default" id="TQG-jE-Dnc"/>
                             <constraint firstItem="Zq8-TM-yI6" firstAttribute="leading" secondItem="fGZ-nO-IR9" secondAttribute="leading" type="default" id="Ubx-fj-qrE"/>
+                            <constraint firstItem="tsW-mK-BRX" firstAttribute="centerY" secondItem="fGZ-nO-IR9" secondAttribute="centerY" type="default" id="eDU-Xa-GSE"/>
                             <constraint firstItem="pGh-mw-1mJ" firstAttribute="trailing" secondItem="fGZ-nO-IR9" secondAttribute="trailing" type="default" id="g0a-L9-tlR"/>
+                            <constraint firstItem="tsW-mK-BRX" firstAttribute="leading" secondItem="fGZ-nO-IR9" secondAttribute="leading" constant="365" id="iWL-5G-rbH"/>
                             <constraint firstItem="Zq8-TM-yI6" firstAttribute="trailing" secondItem="fGZ-nO-IR9" secondAttribute="trailing" type="default" id="sbH-NT-CZH"/>
                             <constraint firstItem="Zq8-TM-yI6" firstAttribute="bottom" secondItem="fGZ-nO-IR9" secondAttribute="bottom" type="default" id="yrM-WF-hBL"/>
                         </constraints>
@@ -264,6 +271,7 @@
                     <navigationItem key="navigationItem" id="JOe-33-2VZ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="tsW-mK-BRX" id="Ixt-fZ-TSp"/>
                         <outlet property="scrollView" destination="Zq8-TM-yI6" id="hmf-gK-l0v"/>
                         <outlet property="titleButtonItem" destination="Gge-dm-RtQ" id="QWx-KG-Zou"/>
                     </connections>
@@ -373,7 +381,6 @@
         <class className="AttributedStringViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AttributedStringViewController.h"/>
             <relationships>
-                <relationship kind="action" name="shareURL:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
@@ -386,6 +393,7 @@
         <class className="PhotoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="titleButtonItem" candidateClass="UIBarButtonItem"/>
             </relationships>
