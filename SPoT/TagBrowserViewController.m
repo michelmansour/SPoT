@@ -28,6 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    
     NSArray *photos = [FlickrFetcher stanfordPhotos];
     
     NSArray *badTags = @[@"cs193pspot", @"portrait", @"landscape"];
@@ -75,6 +78,20 @@
         }
     }
 }
+
+- (IBAction)refresh {
+    NSLog(@"Refreshing...");
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t q = dispatch_queue_create("table view loading queue", NULL);
+    dispatch_async(q, ^{
+        NSLog(@"Dispatched to queue %@", q.description);
+        // do refresh
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.refreshControl endRefreshing];
+        });
+    });
+}
+
 
 #pragma mark - UISplitViewControllerDelegate
 
