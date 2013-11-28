@@ -28,12 +28,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    
+    [self refresh];
+}
+
+- (void)refresh {
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t q = dispatch_queue_create("table view loading queue", NULL);
+    dispatch_async(q, ^{
+        [self fetchPhotoMetadata];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.refreshControl endRefreshing];
+            [self.tableView reloadData];
+        });
+    });
+}
+
+- (void)fetchPhotoMetadata {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSArray *photos = [FlickrFetcher stanfordPhotos];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
     NSArray *badTags = @[@"cs193pspot", @"portrait", @"landscape"];
+    [self.tags removeAllObjects];
     for (NSDictionary *photo in photos) {
         for (NSString *tag in [photo[FLICKR_TAGS] componentsSeparatedByString:@" "]) {
             if (![badTags containsObject:tag]) {
@@ -77,19 +94,6 @@
             }
         }
     }
-}
-
-- (IBAction)refresh {
-    NSLog(@"Refreshing...");
-    [self.refreshControl beginRefreshing];
-    dispatch_queue_t q = dispatch_queue_create("table view loading queue", NULL);
-    dispatch_async(q, ^{
-        NSLog(@"Dispatched to queue %@", q.description);
-        // do refresh
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.refreshControl endRefreshing];
-        });
-    });
 }
 
 
