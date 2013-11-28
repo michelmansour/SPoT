@@ -198,7 +198,13 @@
                             <constraint firstItem="5VE-5G-DxT" firstAttribute="leading" secondItem="eIr-Vv-EBI" secondAttribute="leading" type="default" id="wza-Lu-VQY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="H8b-s1-bgu"/>
+                    <navigationItem key="navigationItem" id="H8b-s1-bgu">
+                        <barButtonItem key="rightBarButtonItem" title="URL" id="fA6-kg-ekv">
+                            <connections>
+                                <segue destination="wSc-ia-Y2O" kind="push" identifier="Show URL" id="Ky3-7f-c0c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="scrollView" destination="5VE-5G-DxT" id="O19-dG-7hU"/>
                     </connections>
@@ -206,6 +212,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBT-an-9Gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1550" y="480"/>
+        </scene>
+        <!--Attributed String View Controller-->
+        <scene sceneID="SpC-DC-rFZ">
+            <objects>
+                <viewController id="wSc-ia-Y2O" customClass="AttributedStringViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0wS-lb-MNe">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="http://www.flickr.com" translatesAutoresizingMaskIntoConstraints="NO" id="diZ-P3-C2r">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="diZ-P3-C2r" firstAttribute="trailing" secondItem="0wS-lb-MNe" secondAttribute="trailing" type="default" id="LVQ-Y0-cj3"/>
+                            <constraint firstItem="diZ-P3-C2r" firstAttribute="bottom" secondItem="0wS-lb-MNe" secondAttribute="bottom" type="default" id="WTa-x1-dHe"/>
+                            <constraint firstItem="diZ-P3-C2r" firstAttribute="top" secondItem="0wS-lb-MNe" secondAttribute="top" type="default" id="tfJ-sb-bB7"/>
+                            <constraint firstItem="diZ-P3-C2r" firstAttribute="leading" secondItem="0wS-lb-MNe" secondAttribute="leading" type="default" id="ysA-z5-4fb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3FF-cg-a4J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="s63-th-jnf">
+                            <connections>
+                                <action selector="shareURL:" destination="wSc-ia-Y2O" id="lOI-be-ZB9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="diZ-P3-C2r" id="ild-qK-6gA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qk5-4T-PoM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2042" y="480"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bfa-8O-PhC">
@@ -226,6 +269,13 @@
         </scene>
     </scenes>
     <classes>
+        <class className="AttributedStringViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AttributedStringViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="shareURL:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
@@ -236,6 +286,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="titleButtonItem" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="RecentPhotosListViewController" superclassName="PhotoListViewController">
