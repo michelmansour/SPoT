@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleButtonItem;
 @property (strong, nonatomic) UIPopoverController *urlPopover;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation PhotoViewController
@@ -33,17 +34,31 @@
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
         
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.photoURL];
-        UIImage *image = [[UIImage alloc] initWithData:imageData];
-        if (image) {
-            self.scrollView.zoomScale = 1.0;
-            self.scrollView.contentSize = image.size;
-            self.imageView.image = image;
-            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-            if (self.titleButtonItem) {
-                self.titleButtonItem.title = self.title;
+        [self.activityIndicator startAnimating];
+        NSURL *photoURL = self.photoURL;
+        
+        dispatch_queue_t imageFetchQ = dispatch_queue_create("image fetched", NULL);
+        dispatch_async(imageFetchQ, ^{
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.photoURL];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            UIImage *image = [[UIImage alloc] initWithData:imageData];
+            
+            if (photoURL == self.photoURL) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (image) {
+                        self.scrollView.zoomScale = 1.0;
+                        self.scrollView.contentSize = image.size;
+                        self.imageView.image = image;
+                        self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+                        if (self.titleButtonItem) {
+                            self.titleButtonItem.title = self.title;
+                        }
+                    }
+                    [self.activityIndicator stopAnimating];
+                });
             }
-        }
+        });
     }
 }
 
