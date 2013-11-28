@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D00D70C81841A9330061F2EC /* AttributedStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00D70C71841A9330061F2EC /* AttributedStringViewController.m */; };
+		D05C17671847DE38004C588B /* NetworkActivityIndictorControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D05C17661847DE38004C588B /* NetworkActivityIndictorControl.m */; };
 		D0D167A5183AFD67001CE56D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D167A4183AFD67001CE56D /* UIKit.framework */; };
 		D0D167A7183AFD67001CE56D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D167A6183AFD67001CE56D /* Foundation.framework */; };
 		D0D167A9183AFD67001CE56D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D167A8183AFD67001CE56D /* CoreGraphics.framework */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		D00D70C61841A9330061F2EC /* AttributedStringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributedStringViewController.h; sourceTree = "<group>"; };
 		D00D70C71841A9330061F2EC /* AttributedStringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributedStringViewController.m; sourceTree = "<group>"; };
+		D05C17651847DE38004C588B /* NetworkActivityIndictorControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkActivityIndictorControl.h; sourceTree = "<group>"; };
+		D05C17661847DE38004C588B /* NetworkActivityIndictorControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkActivityIndictorControl.m; sourceTree = "<group>"; };
 		D0D167A1183AFD67001CE56D /* SPoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D167A4183AFD67001CE56D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D0D167A6183AFD67001CE56D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,8 @@
 				D0D167CD183B084D001CE56D /* TagBrowserViewController.m */,
 				D0D167CF183B29A2001CE56D /* PhotoListViewController.h */,
 				D0D167D0183B29A2001CE56D /* PhotoListViewController.m */,
+				D05C17651847DE38004C588B /* NetworkActivityIndictorControl.h */,
+				D05C17661847DE38004C588B /* NetworkActivityIndictorControl.m */,
 				D0D167C7183AFE23001CE56D /* FlickrFetcher */,
 				D0D167AB183AFD67001CE56D /* Supporting Files */,
 			);
@@ -227,6 +232,7 @@
 				D0D167D7183DB359001CE56D /* RecentPhotosListViewController.m in Sources */,
 				D0D167DA183DB4C7001CE56D /* RecentPhoto.m in Sources */,
 				D00D70C81841A9330061F2EC /* AttributedStringViewController.m in Sources */,
+				D05C17671847DE38004C588B /* NetworkActivityIndictorControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

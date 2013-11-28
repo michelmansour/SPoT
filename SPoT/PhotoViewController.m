@@ -8,6 +8,7 @@
 
 #import "PhotoViewController.h"
 #import "AttributedStringViewController.h"
+#import "NetworkActivityIndictorControl.h"
 
 @interface PhotoViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -39,9 +40,9 @@
         
         dispatch_queue_t imageFetchQ = dispatch_queue_create("image fetched", NULL);
         dispatch_async(imageFetchQ, ^{
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+            [[NetworkActivityIndictorControl sharedControl] startActivity];
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.photoURL];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            [[NetworkActivityIndictorControl sharedControl] stopActivity];
             UIImage *image = [[UIImage alloc] initWithData:imageData];
             
             if (photoURL == self.photoURL) {

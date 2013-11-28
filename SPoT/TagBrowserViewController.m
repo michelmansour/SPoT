@@ -8,6 +8,7 @@
 
 #import "TagBrowserViewController.h"
 #import "FlickrFetcher.h"
+#import "NetworkActivityIndictorControl.h"
 
 @interface TagBrowserViewController () <UISplitViewControllerDelegate>
 @property (strong, nonatomic) NSMutableDictionary *tags;
@@ -45,9 +46,9 @@
 }
 
 - (void)fetchPhotoMetadata {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [[NetworkActivityIndictorControl sharedControl] startActivity];
     NSArray *photos = [FlickrFetcher stanfordPhotos];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[NetworkActivityIndictorControl sharedControl] stopActivity];
     
     NSArray *badTags = @[@"cs193pspot", @"portrait", @"landscape"];
     [self.tags removeAllObjects];
