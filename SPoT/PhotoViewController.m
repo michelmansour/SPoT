@@ -9,6 +9,8 @@
 #import "PhotoViewController.h"
 #import "AttributedStringViewController.h"
 #import "NetworkActivityIndictorControl.h"
+#import "FlickrFetcher.h"
+#import "SpotCache.h"
 
 @interface PhotoViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -16,13 +18,21 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleButtonItem;
 @property (strong, nonatomic) UIPopoverController *urlPopover;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) SpotCache *photoCache;
 @end
 
 @implementation PhotoViewController
 
-- (void)setPhotoURL:(NSURL *)photoURL {
+#define FORMAT_LARGE_CACHE_SIZE 3 * 1024 * 1024
+#define FORMAT_ORIGINAL_CACHE_SIZE 12 * 1024 * 1024
+
+- (void)setPhotoURL:(NSURL *)photoURL forFormat:(FlickrPhotoFormat) flickrPhotoFormat {
     _photoURL = photoURL;
     [self resetImage];
+}
+
+- (void)setFlickrPhotoFormat:(NSNumber *)flickrPhotoFormat {
+    _flickrPhotoFormat = flickrPhotoFormat;
 }
 
 - (UIImageView *)imageView {
@@ -30,19 +40,39 @@
     return _imageView;
 }
 
+- (SpotCache *)photoCache {
+    if (!_photoCache) {
+        if ([self.flickrPhotoFormat integerValue] == FlickrPhotoFormatOriginal) {
+            _photoCache = [[SpotCache alloc] initWithSize:FORMAT_ORIGINAL_CACHE_SIZE];
+        } else {
+            _photoCache = [[SpotCache alloc] initWithSize:FORMAT_LARGE_CACHE_SIZE];
+        }
+    }
+    return _photoCache;
+}
+
 - (void)resetImage {
-    if (self.scrollView) {
+    if (self.scrollView && self.photoURL) {
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
         
         [self.activityIndicator startAnimating];
         NSURL *photoURL = self.photoURL;
         
-        dispatch_queue_t imageFetchQ = dispatch_queue_create("image fetched", NULL);
+        dispatch_queue_t imageFetchQ = dispatch_queue_create("image fetcher", NULL);
         dispatch_async(imageFetchQ, ^{
-            [[NetworkActivityIndictorControl sharedControl] startActivity];
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.photoURL];
-            [[NetworkActivityIndictorControl sharedControl] stopActivity];
+            NSURL *cachedURL = [self.photoCache URLForCachedURL:self.photoURL];
+            NSData *imageData;
+            if (cachedURL) {
+                NSLog(@"Fetching photo from cache: %@", [cachedURL path]);
+                imageData = [[NSData alloc] initWithContentsOfURL:cachedURL];
+            } else {
+                NSLog(@"Fetching photo from network");
+                [[NetworkActivityIndictorControl sharedControl] startActivity];
+                imageData = [[NSData alloc] initWithContentsOfURL:self.photoURL];
+                [[NetworkActivityIndictorControl sharedControl] stopActivity];
+            }
+            [self.photoCache cacheData:imageData forURL:self.photoURL];
             UIImage *image = [[UIImage alloc] initWithData:imageData];
             
             if (photoURL == self.photoURL) {

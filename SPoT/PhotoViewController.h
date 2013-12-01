@@ -11,5 +11,6 @@
 @interface PhotoViewController : UIViewController
 
 @property (strong, nonatomic) NSURL *photoURL;
+@property (strong, nonatomic) NSNumber *flickrPhotoFormat;
 
 @end
