@@ -26,6 +26,7 @@
 		D0D167D7183DB359001CE56D /* RecentPhotosListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D6183DB358001CE56D /* RecentPhotosListViewController.m */; };
 		D0D167DA183DB4C7001CE56D /* RecentPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D167D9183DB4C7001CE56D /* RecentPhoto.m */; };
 		D0D167DF183F1382001CE56D /* iPadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0D167DD183F1382001CE56D /* iPadStoryboard.storyboard */; };
+		D0E75844184AA2EB009708E3 /* SpotCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E75843184AA2EB009708E3 /* SpotCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		D0D167D8183DB4C7001CE56D /* RecentPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhoto.h; sourceTree = "<group>"; };
 		D0D167D9183DB4C7001CE56D /* RecentPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhoto.m; sourceTree = "<group>"; };
 		D0D167DE183F1382001CE56D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPadStoryboard.storyboard; sourceTree = "<group>"; };
+		D0E75842184AA2EB009708E3 /* SpotCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotCache.h; sourceTree = "<group>"; };
+		D0E75843184AA2EB009708E3 /* SpotCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				D0D167D3183C67E2001CE56D /* PhotoViewController.m */,
 				D0D167CC183B084D001CE56D /* TagBrowserViewController.h */,
 				D0D167CD183B084D001CE56D /* TagBrowserViewController.m */,
+				D0E75842184AA2EB009708E3 /* SpotCache.h */,
+				D0E75843184AA2EB009708E3 /* SpotCache.m */,
 				D0D167CF183B29A2001CE56D /* PhotoListViewController.h */,
 				D0D167D0183B29A2001CE56D /* PhotoListViewController.m */,
 				D05C17651847DE38004C588B /* NetworkActivityIndictorControl.h */,
@@ -233,6 +238,7 @@
 				D0D167DA183DB4C7001CE56D /* RecentPhoto.m in Sources */,
 				D00D70C81841A9330061F2EC /* AttributedStringViewController.m in Sources */,
 				D05C17671847DE38004C588B /* NetworkActivityIndictorControl.m in Sources */,
+				D0E75844184AA2EB009708E3 /* SpotCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
