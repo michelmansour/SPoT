@@ -44,13 +44,15 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Show Photo"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(setPhotoURL:)]) {
+                if ([segue.destinationViewController respondsToSelector:@selector(setPhotoURL:)] &&
+                    [segue.destinationViewController respondsToSelector:@selector(setFlickrPhotoFormat:)]) {
                     NSDictionary *photo = self.photos[indexPath.row];
                     int flickrPhotoFormat = FlickrPhotoFormatLarge;
                     if (self.splitViewController) {
                         flickrPhotoFormat = FlickrPhotoFormatOriginal;
                     }
                     NSURL *photoURL = [FlickrFetcher urlForPhoto:photo format:flickrPhotoFormat];
+                    [segue.destinationViewController performSelector:@selector(setFlickrPhotoFormat:) withObject:[NSNumber numberWithInt:flickrPhotoFormat]];
                     [segue.destinationViewController performSelector:@selector(setPhotoURL:) withObject:photoURL];
                     [segue.destinationViewController setTitle:photo[FLICKR_PHOTO_TITLE]];
                     [RecentPhoto viewedPhoto:photo];
