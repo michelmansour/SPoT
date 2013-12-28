@@ -12,9 +12,10 @@
 #import "FlickrFetcher.h"
 #import "SpotCache.h"
 
-@interface PhotoViewController () <UIScrollViewDelegate>
+@interface PhotoViewController () <UIScrollViewDelegate, UIToolbarDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleButtonItem;
 @property (strong, nonatomic) UIPopoverController *urlPopover;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -116,6 +117,10 @@
     }
 }
 
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.imageView;
 }
@@ -127,6 +132,7 @@
     self.scrollView.maximumZoomScale = 5.0;
     self.scrollView.delegate = self;
     self.titleButtonItem.title = self.title;
+    self.toolbar.delegate = self;
     [self resetImage];
 }
 
